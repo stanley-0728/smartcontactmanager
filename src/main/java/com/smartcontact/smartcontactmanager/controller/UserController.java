@@ -71,13 +71,13 @@ public class UserController {
     @GetMapping("/setting")
    
     public String getMethodName() {
-        return "user/user_settings";
+        return "user/user_setting";
     }
 
 
     @GetMapping("/addContact")
     public String addContact(@ModelAttribute("contact") Contact contact,Model m){
-        return "user/addContact";
+        return "user/add_contact";
     }
 
     @PostMapping("/addContact")
@@ -122,7 +122,7 @@ public class UserController {
 
      }
 
-        return "user/addContact";
+        return "user/add_contact";
     }
 
     @GetMapping("/showContacts/{page}")
@@ -146,7 +146,7 @@ public class UserController {
         User user =this.repo.findByName(username);
         if(user.getId()==c.getUser().getId())
                 m.addAttribute("c", c);
-        return "/user/contact_detail";
+        return "user/contact_detail";
     }
     
     @GetMapping("/delete/{cId}")
@@ -167,7 +167,7 @@ public class UserController {
         //TODO: process POST request
         Contact contact=this.contactRepo.findById(cId).get();
         m.addAttribute("contact", contact);
-        return "/user/update_contact";
+        return "user/update_contact";
     }
     @PostMapping("/update-Contact")
     public String updateHandler(@ModelAttribute("contact") Contact contact,
@@ -209,7 +209,7 @@ public class UserController {
 
     @GetMapping("/profile")
     public String getProfile(){   
-        return "user/profile";
+        return "user/user_profile";
     }
 
 
