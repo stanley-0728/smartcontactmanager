@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -52,6 +53,8 @@ public class UserController {
     private ContactRepository contactRepo;
     @Autowired 
     private FileUploader fileUploader;
+    @Value("${project.image}")
+    private String path;
  
     @ModelAttribute
     void addCommonData(Model m,Principal p){
@@ -98,7 +101,7 @@ public class UserController {
             contact.setImage(file.getOriginalFilename());
             // Save file location
            
-            boolean f=this.fileUploader.uploadFile(file);
+            boolean f=this.fileUploader.uploadFile(path,file);
             if(f){
                 System.out.println("Image Saved");
             }
@@ -179,7 +182,7 @@ public class UserController {
                     File file1=new File(deleteFile,oldContact.getImage());
                     file1.delete();
 
-                   boolean  f=this.fileUploader.uploadFile(file);
+                   boolean  f=this.fileUploader.uploadFile(path,file);
                    if(f){
                         System.out.println("Saved");
                    }
