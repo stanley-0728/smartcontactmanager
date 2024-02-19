@@ -145,7 +145,7 @@ public class UserController {
         User user =this.repo.findByName(username);
         if(user.getId()==c.getUser().getId())
                 m.addAttribute("c", c);
-        return "user/contact_details";
+        return "user/contact_detail";
     }
     
     @GetMapping("/delete/{cId}")
