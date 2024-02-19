@@ -69,8 +69,7 @@ public class UserController {
 
 
     @GetMapping("/setting")
-   
-    public String getMethodName() {
+    public String setting() {
         return "user/user_setting";
     }
 
@@ -146,7 +145,7 @@ public class UserController {
         User user =this.repo.findByName(username);
         if(user.getId()==c.getUser().getId())
                 m.addAttribute("c", c);
-        return "user/contact_detail";
+        return "user/contact_details";
     }
     
     @GetMapping("/delete/{cId}")
