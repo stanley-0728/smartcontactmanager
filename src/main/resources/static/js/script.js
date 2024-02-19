@@ -23,7 +23,7 @@ const search = () => {
             $('.search-result').hide();
         }
         else{
-            let url=`http://localhost:8080/search/${query}`;
+            let url=`https://accessible-degree-empty.up.railway.app/search/${query}`;
             fetch(url)
                         .then((response)=>{
                             return response.json();
