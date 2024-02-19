@@ -64,20 +64,20 @@ public class UserController {
     @GetMapping("/dashboard") 
     @PreAuthorize("hasAuthority('ROLE_USER')")
     public String user_dashboard(Model m,Principal p){
-        return "/user/user_dashboard";
+        return "user/user_dashboard";
     }
 
 
     @GetMapping("/setting")
    
     public String getMethodName() {
-        return "/user/user_settings";
+        return "user/user_settings";
     }
 
 
     @GetMapping("/addContact")
     public String addContact(@ModelAttribute("contact") Contact contact,Model m){
-        return "/user/addContact";
+        return "user/addContact";
     }
 
     @PostMapping("/addContact")
@@ -122,7 +122,7 @@ public class UserController {
 
      }
 
-        return "/user/addContact";
+        return "user/addContact";
     }
 
     @GetMapping("/showContacts/{page}")
@@ -135,10 +135,10 @@ public class UserController {
         m.addAttribute("currentPage", page);
         m.addAttribute("totalPages", contacts.getTotalPages());
 
-        return "/user/show_contacts";
+        return "user/show_contacts";
     }
 
-    @GetMapping("/{cId}/contact")
+    @GetMapping("{cId}/contact")
     public String showContactDetail(@PathVariable("cId")Integer cId,Model m,Principal p) {
         Optional<Contact> contact=this.contactRepo.findById(cId);
         Contact c=contact.get();
@@ -209,7 +209,7 @@ public class UserController {
 
     @GetMapping("/profile")
     public String getProfile(){   
-        return "/user/profile";
+        return "user/profile";
     }
 
 
