@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thmeleaf.org" th:replace="/user/base::Layout(~{::section})" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section >
+      <div class="container-fluid">
+        <div class="row justify-content-sm-center">
+            <div class="col-xxl-10 col-xl-8 col-lg-10 col-md-10  col-sm-6">
+                    <div class="card">
+                        <div class="card-body ">
+                            <h1 class="text-center">ADD CONTACTS</h1>
+                            <div class="container-fluid">
+                                <div class="col-md-10 offset-md-1">
+                                    <form action="#" th:action="@{/user/addContact}" class="mt-3"
+                                     method="post",th:object="${contact}" enctype="multipart/form-data">
+                                        <!-- first input -->
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text ">
+                                                    <i class="fa fa-plus  " style=" color:  black; background-color: #eee;"></i>
+                                                </div>
+                                            </div>
+                
+                                            <input class="form-control" name="name" placeholder="Enter your name"
+                                               required type="text" id="firstname" style="width: 50px; height: 30px;">
+                                            
+                                        </div>
+                
+                                        <!-- Second input -->
+                                        <div class="input-group mt-3">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text ">
+                                                    <i class="fas fa-user-alt  " style="color: black; background-color: #eee;"></i>
+                                                </div>
+                                            </div>
+                
+                                            <input class="form-control" name="secondName" placeholder="Enter your Second name"
+                                            required style="width: 50px; height: 30px;" type="text" id="secondname"
+                                            >
+                                        </div>
+                                        <!-- Phone -->
+                                        <div class="input-group mt-3">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-phone  " style="color: black; background-color: #eee;"></i>
+                                                </div>
+                                            </div>
+                
+                                            <input class="form-control" name="phone" placeholder="Enter number"
+                                               required min="10" style="width: 50px; height: 30px;" type="number" id="number"
+                                            >
+                                        </div>
+                                         <!-- Email -->
+                                         <div class="input-group mt-3">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text " style="height: 30px;">
+                                                    @
+                                                </div>
+                                            </div>
+                
+                                            <input class="form-control" name="email" placeholder="Enter email"
+                                                required   style="width: 50px; height: 30px;" type="email" id="email"
+                                            >
+                                        </div>
+                
+                                         <!-- Work -->
+                                         <div class="input-group mt-3">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text ">
+                                                    <i class="fa fa-briefcase 
+                                                     " style="color: black; background-color: #eee;"></i>
+                                                </div>
+                                            </div>
+                
+                                            <input class="form-control" name="work" placeholder="Enter Work"
+                                                required  style="width: 50px; height: 30px;" type="text" id="work"
+                                            >
+                                        </div>
+                
+                                        <!-- description -->
+                                        <div class="form-group mt-3">
+                                            <textarea name="description" id="description"
+                                            placeholder="Enter Description"
+                                            class="form-control"
+                                            rows="5"
+                                            ></textarea>
+                
+                                        </div>
+                                        <div class="m-2">
+                                            <input type="file" name="profileImage">
+                                        </div>
+                                        <div class="container text-center mt-1">
+                                            <button class="btn btn-outline-primary"> Save Contact</button>
+                                        </div>
+                                    </form>
+                                   
+                                </div>
+                            </div>
+                
+                        </div>
+                    </div>
+            </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thmeleaf.org" th:replace="base::Layout(~{::section})" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="banner d-flex justify-content-center align-items-center">
+       <div class="text-center">
+        <h1 class="font-weight-bold">Smart Contact Manager</h1>
+    
+        <p>Start Collecting contacts in very smarter way.We provide 
+            very efficient and smarter way of handling contacts
+        </p>
+        <button onclick="home()" class="btn btn-lg btn-dark"> Get Start</button>
+
+
+       </div>
+
+       <script>
+        function home(){
+            window.location.href="/signUp";
+        }
+       </script>
+    </section>
+</body>
+</html>

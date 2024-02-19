@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thmeleaf.org" th:replace="base::Layout(~{::section})" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+				
+					<div class="card shadow-lg my-5">
+						<div class="card-body p-5">
+
+							<div class="alert alert-success" role="alert">
+                                       We have Sent OTP to your email...
+                              </div>
+
+                              <div th:if="${session.message}" class="container-fluid text-center " style="margin-top: 5%;">
+                                <div  th:classappend="${session.message.type}"
+                                class="alert  " role="alert" >
+                                  <p th:text="${session.message.content}" style="font-size: 20px; font-weight: bold;"></p>
+                                  <th:block th:text="${@sessionHelper.removeSession()}"></th:block>
+                                </div>
+                              </div>
+                                <form action="#" th:action="@{/verify-otp}"
+                                    method="post">
+
+                                    <div class="form-group">
+                                        <input type="text" 
+                                             required name="otp"
+                                            placeholder="enter your otp here.."
+                                            class="form-control"   >
+                                   </div>
+
+                                   <div class="container mt-3 text-center">
+                                        <button class="btn btn-primary">Verify OTP</button>
+                                   </div>
+                                </form>
+                   
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+
+
+
+  
