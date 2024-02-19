@@ -137,7 +137,7 @@ public class UserController {
         return "user/show_contacts";
     }
 
-    @GetMapping("{cId}/contact")
+    @GetMapping("/{cId}/contact")
     public String showContactDetail(@PathVariable("cId")Integer cId,Model m,Principal p) {
         Optional<Contact> contact=this.contactRepo.findById(cId);
         Contact c=contact.get();
