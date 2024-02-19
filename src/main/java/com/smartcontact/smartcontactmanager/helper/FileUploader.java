@@ -12,13 +12,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileUploader {
-    public final String UPLOAD_DIR =new ClassPathResource("static/image").getFile().getAbsolutePath();
-        public FileUploader() throws IOException{
-
-        }
+     
      public boolean uploadFile(MultipartFile file){
          boolean f=false;
             try{
+                 String UPLOAD_DIR =new ClassPathResource("static/image").getFile().getAbsolutePath();
                 Files.copy(file.getInputStream(),Paths.get(UPLOAD_DIR+File.separator+file.getOriginalFilename())
                 ,StandardCopyOption.REPLACE_EXISTING);
                 f=true;
